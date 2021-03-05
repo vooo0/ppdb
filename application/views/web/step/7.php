@@ -11,7 +11,7 @@
         <input type="hidden" name="result_data" id="result-data" value=""></div>
     </form>
     
-    <button id="pay-button">Bayar!</button>
+    <button class="btn btn-primary" id="pay-button">Bayar!</button>
 
   </div>
 </div>
