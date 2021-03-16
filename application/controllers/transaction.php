@@ -55,19 +55,28 @@ class Transaction extends CI_Controller {
 
     }
 
+	private function userNew()
+	{
+		$new = $this->process();
+		
+	}
+
 	public function status($order_id)
 	{
-		echo 'test get status </br>';
-		echo '<pre>';
-		print_r ($this->veritrans->status($order_id) );
-		echo '</pre>';
+		// echo 'test get status </br>';
+		// echo '<pre>';
+		// print_r ($this->veritrans->status($order_id) );
+		// echo '</pre>';
 
 		$response = $this->veritrans->status(($order_id));
 		$transaction_status = $response->transaction_status;
 
 		$update = $this->db->query("UPDATE tbl_requesttransaksi SET transaction_status='$transaction_status' WHERE order_id='$order_id' ");
 		if ($update) {
-			echo "Status Tranasksi Berhasil Diupdate";
+			//echo "Status Tranasksi Berhasil Diupdate";
+			$this->userNew();
+
+			echo json_encode($response);
 		}else {
 			echo "Status Transaksi Gagal Diupdate";
 		}

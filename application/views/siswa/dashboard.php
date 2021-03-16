@@ -2,6 +2,7 @@
   $cek    = $user->row();
   $id_user = $cek->id_siswa;
   $nama    = $cek->nama_lengkap;
+  $niks    = $cek->nik;
 
   $tgl = date('m-Y');
 ?>
@@ -21,8 +22,25 @@
           </h3>
         </div>
       </div>
-      <!-- /basic datatable -->
-
+      <?php if( $niks == null ){ ?>
+        <div class="panel panel-flat bg-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <center>Harap Lengkapi Biodata Calon Siswa</center>
+            </h3>
+          </div>
+        </div>
+      <?php }else{ ?>
+        <div class="panel panel-flat bg-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <center>Biodata Telah Dilengkapi, Silahkan Menunggu Pengumuman Penerimaan</center>
+            </h3>
+          </div>
+        </div>
+      <?php } ?>
+        <!-- /basic datatable -->
+        
       <div class="row">
         <div class="col-lg-12">
           <?php if ($cek->status_pendaftaran == 'lulus') {?>

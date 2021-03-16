@@ -154,7 +154,13 @@ $sub_menu3 = strtolower($this->uri->segment(3));
 								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'export'){echo 'active';} ?>"><a href="panel_admin/export"><i class="icon-file-excel"></i> <span>Export Formulir</span></a></li>
 
 								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'set_pengumuman'){echo 'active';} ?>"><a href="panel_admin/set_pengumuman"><i class="icon-display4"></i> <span>Setting Pengumuman</span></a></li>
-								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'pembayaran'){echo 'active';} ?>"><a href="panel_admin/pembayaran"><i class="icon-cart"></i> <span>Pembayaran</span></a></li>
+								<li>
+									<a href="#"><i class="icon-cart"></i> <span>Pembayaran</span></a>
+									<ul>
+										<li class="<?php if($sub_menu == 'pembayaran'){echo 'active';} ?>"><a href="panel_admin/pembayaran">Online</a></li>
+										<li class="<?php if($sub_menu == 'transaction'){echo 'active';} ?>"><a href="panel_admin/pembayaranOffline">Offline</a></li>
+									</ul>
+								</li>
 
 								<li class="<?php if($menu == 'panel_admin' AND $sub_menu == 'statistik'){echo 'active';} ?>"><a href="panel_admin/statistik"><i class="icon-stats-dots"></i> <span>Statistik Pendaftaran</span></a></li>
 								<!-- /Main -->

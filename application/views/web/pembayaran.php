@@ -57,37 +57,40 @@
     <![endif]-->
     <section>
 
-        <div class="main-content">
+      <div class="main-content">
         <!-- BEGIN TOPBAR -->
-            <div class="topbar" style="background-color:#2B589C;color:#fff;">
-                <div class="header-left">
-                    <div class="col-sm-12">
-                        <div style="margin-top:-8px;">
-                            <h2>
+        <div class="topbar" style="background-color:#2B589C;color:#fff;">
+          <div class="header-left">
+            <div class="col-sm-12">
+              <div style="margin-top:-8px;">
+              <h2>
 								<strong class="text-primary">
 									<a href=""><img src="img/logo.png" alt="Logo" width="30" style="position:absolute;margin-top:-3px;"> <span style="margin-left:35px;color:#fff;">PPDB Online</span></a>
 								</strong>
 							</h>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-right">
-                    <ul class="header-menu nav navbar-nav">
-                    <!-- BEGIN USER DROPDOWN -->
-                    <li class="dropdown" id="language-header">
-                        <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <span style="color:#ddd;">PPDB Tahun Ajaran <b class="text-danger" style="color:#fff;"><?php echo date('Y'); ?>-<?php echo date('Y')+1; ?></b></span>
-                        </a>
-                    </li>
-                    </ul>
-                </div>
+              </div>
             </div>
-        
+
+          </div>
+          <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+              <!-- BEGIN USER DROPDOWN -->
+              <li class="dropdown" id="language-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <span style="color:#ddd;">PPDB Tahun Ajaran <b class="text-danger" style="color:#fff;"><?php echo date('Y'); ?>-<?php echo date('Y')+1; ?></b></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- header-right -->
+        </div>
+      <div>
         <!-- END TOPBAR -->
         <!-- BEGIN PAGE CONTENT -->
         <div class="page-content page-wizard">
 
-            <div class="header" style="margin-top:-20px;">
+          <div class="header" style="margin-top:-20px;">
             <h2>Form Pembayaran Pendaftaran PPDB Online <strong> NAMA SEKOLAH</strong></h2>
             <hr style="margin-top:5px;">
 
@@ -99,124 +102,143 @@
 
                   <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h2><strong class="text-success" style="color:#eee;">Pembayaran Pendaftaran</strong></h2>
+                      <h2><strong class="text-success" style="color:#eee;">Pembayaran Pendaftaran</strong></h2>
                     </div>
                     <div class="panel-body">
-                        <fieldset class="content-group">
-                        <legend class="text-bold"><i class="icon-user"></i> Confirmation</legend>
                         
-                        <table>
-                            <tr>
-                                <td>Nama</td>
-                                <td>: <?php echo $finish->nama_lengkap; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Telepon</td>
-                                <td>: <?php echo $finish->no_telepon; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Jurusan</td>
-                                <td>: <?php echo $finish->jurusan; ?></td>
-                            </tr>
-                            <tr>
-                                <td>nisn</td>
-                                <td>: <?php echo $finish->nisn; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Status Code</td>
-                                <td>: <?php echo $finish->status_code; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Status Message</td>
-                                <td>: <?php echo $finish->status_message; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Order Id</td>
-                                <td>: <?php echo $finish->order_id; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Transaction Status</td>
-                                <td>: <?php echo $finish->transaction_status; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Biller Key</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->bill_key)){
-                                            echo $finish->bill_key;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Biller Code</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->bill_code)){
-                                            echo $finish->bill_code;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bank</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->va_numbers[0]->bank)){
-                                            echo $finish->va_numbers[0]->bank;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>VA Number</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->va_numbers[0]->va_number)){
-                                            echo $finish->va_numbers[0]->va_number;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>VA Permata</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->permata_va_number)){
-                                            echo $finish->permata_va_number;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Payment Guide</td>
-                                <td>: <a href=<?php echo $finish->transaction_status; ?>> Download </a></td>
-                            </tr>
-                            </table>
-                        
-                        </fieldset>
-                        
-                    </form>
+                      <form id="payment-form" method="post" action="<?=site_url()?>/snap/finish">
+                        <div class="form-group" style="padding-bottom:30px;">
+                          <label class="col-sm-3 control-label"style="text-align:right; margin-top:6px">NISN<span class="text-danger">*</span></label>
+                          <div class="col-sm-9 prepend-icon" style="margin-top:1px;">
+                              <input type="text" id="nisn" name="nisn" class="form-control bg-blue class" onkeypress="return" maxlength="30" placeholder="nisn Lengkap Calon Siswa" data-parsley-group="block1" data-parsley-errors-container='div[id="error-nisn"]' required>
+                              <i class="fa fa-users" style="margin-left:15px;"></i>
+                              <div id="error-nisn" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
+                              <div id="pesan_komentar">*Sesuai dengan data asli calon siswa</div>
+                          </div>
+                        </div>
+
+                        <div class="form-group" style="padding-bottom:30px;">
+                          <label class="col-sm-3 control-label"style="text-align:right; margin-top:6px">Nama<span class="text-danger">*</span></label>
+                          <div class="col-sm-9 prepend-icon" style="margin-top:1px;">
+                              <input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control bg-blue class" onkeypress="return" maxlength="30" placeholder="Nama_lengkap Lengkap Calon Siswa" data-parsley-group="block1" data-parsley-errors-container='div[id="error-nama_lengkap"]' required>
+                              <i class="fa fa-users" style="margin-left:15px;"></i>
+                              <div id="error-nama_lengkap" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
+                              <div id="pesan_komentar">*Sesuai dengan data asli calon siswa</div>
+                          </div>
+                        </div>
+
+                        <div class="form-group" style="padding-bottom:30px;">
+                          <label class="col-sm-3 control-label"style="text-align:right; margin-top:6px">Nomor Telepon<span class="text-danger">*</span></label>
+                          <div class="col-sm-9 prepend-icon" style="margin-top:1px;">
+                              <input type="text" id="no_hp_siswa" name="no_hp_siswa" class="form-control bg-blue class" onkeypress="return hanyaAngka(this);" maxlength="30" placeholder="Nomor no_hp_siswa Calon Siswa" data-parsley-group="block1" data-parsley-errors-container='div[id="error-no_hp_siswa"]' required>
+                              <i style="margin-left:15px;">+62</i>
+                              <div id="error-no_hp_siswa" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
+                              <div id="pesan_komentar">*Sesuai dengan data asli calon siswa</div>
+                          </div>
+                        </div>
+
+                        <div class="form-group" style="padding-bottom:30px;">
+                          <label class="col-sm-3 control-label"style="text-align:right; margin-top:6px">Jurusan <span class="text-danger">*</span></label>
+                            <div class="col-sm-9 prepend-icon" style="margin-top:1px;">
+                            <select class="form-control bg-blue class" id="jurusan" data-placeholder="Pilih Jurusan" name="jurusan" data-parsley-group="block1" data-parsley-errors-container='div[id="error-jurusan"]' required>
+                                    <option value="" selected>Pilih Jurusan</option>
+                                    <option value="TKRO">TKRO</option>
+                                    <option value="TBSM">TBSM</option>
+                                    <option value="TEI">TEI</option>
+                                </select>
+                            <div id="error-bln_lahir" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
+                            <div id="pesan_komentar">*Wajib pilih jurusan</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="padding-bottom:30px;">
+                          <input type="hidden" name="result_type" id="result-type" value="">
+                          <input type="hidden" name="result_data" id="result-data" value="">
+                          <label class="col-sm-3 control-label"style="text-align:right; margin-top:6px">Pembayaran <span class="text-danger">*</span></label>
+                          <div class="col-sm-9 prepend-icon" style="margin-top:1px;">
+                            <button class="btn btn-primary" id="pay-button" >Bayar Online</button>
+                            <button class="btn btn-primary" id="off-button" >Bayar Offline</button>
+                            <div id="pesan_komentar">*Pilih salah satu</div>
+                          </div>
+                      </form>
+                      <script type="text/javascript">
+                  
+                          $('#pay-button').click(function (event) {
+                          event.preventDefault();
+                          $(this).attr("disabled", "disabled");
+
+                          var nama     = $('#nama_lengkap').val();
+                          var telepon  = $('#no_hp_siswa').val();
+                          var jurusans = $('#jurusan').val();
+                          var nisns    = $('#nisn').val();
+                          
+                          $.ajax({
+
+                              type: 'POST',
+                              url: '<?=site_url()?>/snap/token',
+                              data: {
+                                  nama_lengkap: nama,
+                                  no_hp_siswa: telepon,
+                                  jurusan: jurusans,
+                                  nisn: nisns
+                                  },
+                              cache: false,
+
+                              success: function(data) {
+                                  //location = data;
+
+                                  console.log('token = '+data);
+                                  
+                                  var resultType = document.getElementById('result-type');
+                                  var resultData = document.getElementById('result-data');
+
+                                  function changeResult(type,data){
+                                  $("#result-type").val(type);
+                                  $("#result-data").val(JSON.stringify(data));
+                                  //resultType.innerHTML = type;
+                                  //resultData.innerHTML = JSON.stringify(data);
+                                  }
+
+                                  snap.pay(data, {
+                                  
+                                  onSuccess: function(result){
+                                      changeResult('success', result);
+                                      console.log(result.status_message);
+                                      console.log(result);
+                                      $("#payment-form").submit();
+                                  },
+                                  onPending: function(result){
+                                      changeResult('pending', result);
+                                      console.log(result.status_message);
+                                      $("#payment-form").submit();
+                                  },
+                                  onError: function(result){
+                                      changeResult('error', result);
+                                      console.log(result.status_message);
+                                      $("#payment-form").submit();
+                                  }
+                                  });
+                              }
+                          });
+                      });
+
+                      </script>
+                    </div>
+
+                    <div class="col-md-12">
+                        <hr>
+                        <blockquote>
+                            <p><b>CATATAN:</b></p>
+                            <p><b>1.</b> Field isian dengan tanda <span class="text-danger ">*</span><b class="text-danger">wajib diisi</b>.</p>
+                            <p><b>2.</b> Untuk pembayaran online, calon siswa akan mendapatkan aku virtal dari bank yang dipilih. dan segera untuk melakukan pembayaran dengan jangka waktu 2 hari.</p>
+                            <p><b>3.</b> Untuk pembayaran offline, calon siswa akan mendapatkan bukti pendaftaran dan diharuskan secepatnya melakukan pembayaran disekolah dengan menunjukkan bukti pendaftaran.</p>
+                        </blockquote>
+                    <div>
                 </div>
             </div>
-        </div>
 
-
-    </div>
-    <!-- /dashboard content -->
-
-    
-    <div class="footer">
+          </div>
+          <div class="footer">
             <div class="copyright">
               <p class="pull-left sm-pull-reset">
                 <span>Copyright &copy; <a href="http://www.sman1belitang.sch.id" target="_blank">NAMA SEKOLAH</a> <?php echo date('Y'); ?> | IT Development</span>

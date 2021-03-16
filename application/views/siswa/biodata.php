@@ -28,6 +28,13 @@ $user = $user->row();?>
               <?php echo $this->Model_data->tgl_id(date('d-m-Y H:i:s', strtotime($user->tgl_siswa))); ?>
               <hr>
               <b>Rayonisasi : <?php echo $user->rayonisasi; ?></b>
+              <hr>
+              <?php if($user->nik == null){ ?>
+                <a href="/panel_siswa/biodata/<?php echo $user->no_pendaftaran; ?>/edit" class="btn btn-primary" style="width:100%"><b>Edit Biodata</b></a>
+                <?php }else{ ?>
+                  <a href="/panel_siswa/biodata/<?php echo $user->no_pendaftaran; ?>/edit" class="btn btn-primary" style="width:100%" disabled><b>Edit Biodata</b></a>
+                  <br><b style="color:red">* Biodata Hanyabisa Diubah Satu Kali</b>
+              <?php } ?>
             </fieldset>
           </form>
           </div>

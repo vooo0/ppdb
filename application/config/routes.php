@@ -53,5 +53,5 @@ $route['default_controller'] = 'web';
 $route['404_override'] = 'web/error_not_found';
 $route['pendaftaran']  = 'web/pendaftaran';
 $route['logcs']        = 'web/logcs';
-// $route['pembayaran']   = 'web/pembayaran';
+$route['pembayaran']   = 'web/pembayaran';
 $route['translate_uri_dashes'] = FALSE;

@@ -8,6 +8,17 @@ class Web extends CI_Controller {
 		$data['web_ppdb']	 = $this->db->get_where('tbl_web', "id_web='1'")->row();
 		$this->load->view('web/index', $data);
 	}
+	
+	public function pembayaran()
+	{
+		$data['web_ppdb']	 = $this->db->get_where('tbl_web', "id_web='1'")->row();
+		if ($data['web_ppdb']->status_ppdb == 'tutup') {
+			redirect('404');
+		}
+		
+		$this->load->view('web/pembayaran', $data);
+	
+	}
 
 	public function pendaftaran()
 	{

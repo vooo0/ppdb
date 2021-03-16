@@ -415,7 +415,41 @@ class Panel_admin extends CI_Controller {
 			redirect('panel_admin/log_in');
 		}else{
 			$data['user']  		= $this->db->get_where('tbl_user', "username='$ceks'");
-			$data['judul_web'] 	= "Verifikasi";
+			$data['judul_web'] 	= "Pembayaran";
+
+			$data['v_pbyr']  	= $this->db->get('tbl_requesttransaksi');
+
+			$this->load->view('admin/header', $data);
+			$this->load->view('admin/pembayaran/pembayaran', $data);
+			$this->load->view('admin/footer');
+		}
+	}
+
+	public function pembayaranOffline($aksi='',$id='')
+	{
+		$ceks = $this->session->userdata('un@sman1_belitang');
+		if(!isset($ceks)) {
+			redirect('panel_admin/log_in');
+		}else{
+			$data['user']  		= $this->db->get_where('tbl_user', "username='$ceks'");
+			$data['judul_web'] 	= "Pembayaran";
+
+			$data['v_pbyr']  	= $this->db->get('tbl_requesttransaksi_offline');
+
+			$this->load->view('admin/header', $data);
+			$this->load->view('admin/pembayaran/pembayaranOffline', $data);
+			$this->load->view('admin/footer');
+		}
+	}
+
+	public function transaction($aksi='',$id='')
+	{
+		$ceks = $this->session->userdata('un@sman1_belitang');
+		if(!isset($ceks)) {
+			redirect('panel_admin/log_in');
+		}else{
+			$data['user']  		= $this->db->get_where('tbl_user', "username='$ceks'");
+			$data['judul_web'] 	= "Transaksi";
 
 			if ($aksi == 'cek') {
 				$cek_status = $this->db->get_where('tbl_siswa', "no_pendaftaran='$id'")->row();

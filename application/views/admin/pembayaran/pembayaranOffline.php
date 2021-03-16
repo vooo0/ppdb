@@ -23,10 +23,10 @@
                     <thead>
                     <tr>
                         <th width="30px;">No.</th>
-                        <th class="text-center" >Order ID</th>
-                        <th class="text-center" >Total Bayar</th>
-                        <th class="text-center" >Melalui</th>
-                        <th class="text-center" >Nama Bank</th>
+                        <th class="text-center" >Nama</th>
+                        <th class="text-center" >Telepon</th>
+                        <th class="text-center" >NISN</th>
+                        <th class="text-center" >No Pendaftaran</th>
                         <th class="text-center" >Status</th>
                         <th class="text-center" width="130">Aksi</th>
                     </tr>
@@ -38,23 +38,23 @@
                         ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $baris->order_id; ?></td>
-                            <td>Rp. <?php echo $baris->gross_amount; ?></td>
-                            <td><?php echo $baris->payment_type; ?></td>
-                            <td><?php echo $baris->bank; ?></td>
+                            <td><?php echo $baris->nama_lengkap; ?></td>
+                            <td>Rp. <?php echo $baris->no_hp_siswa; ?></td>
+                            <td><?php echo $baris->nisn; ?></td>
+                            <td><?php echo $baris->no_pendaftaran; ?></td>
                             <td align="center">
-                            <?php if ($baris->transaction_status == 'pending') {?>
-                                <label class="label label-primary">Proses</label>
-                            <?php }elseif ($baris->transaction_status == 'settlement'){ ?>
+                            <?php if ($baris->status == '0') {?>
+                                <label class="label label-primary">Belum Lunas</label>
+                            <?php }elseif ($baris->status == '1'){ ?>
                                 <label class="label label-success">Lunas</label>
                             <?php }else{ ?>
                                 <label class="label label-warning">Gagal</label>
                             <?php } ?>
                             </td>
                             <td align="center"> 
-                                <a href="<?php echo $baris->pdf_url; ?>" class="btn btn-default btn-xs" title="Cetak Verifikasi" target="_blank"><i class="icon-printer2"></i></a>
+                                <a href="<?php echo $baris->id; ?>" class="btn btn-default btn-xs" title="Cetak Verifikasi" target="_blank"><i class="icon-printer2"></i></a>
                                 <form action="<?php echo site_url()?>transaction/process" class="checkStatus" method="POST">
-                                    <input value="<?php echo $baris->order_id; ?>" type="hidden" name="order_id"/>
+                                    <input value="<?php echo $baris->id; ?>" type="hidden" name="id"/>
                                     <input value="status" type="hidden" name="action"/>
                                     <button type="submit" class="btn btn-primary btn-xs"><i class="icon-checkmark4"></i></button>
                                 </form>

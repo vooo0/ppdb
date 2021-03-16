@@ -42,12 +42,26 @@ class Panel_siswa extends CI_Controller {
 			$data['user']  			  = $this->db->get_where('tbl_siswa', "no_pendaftaran='$ceks'");
  			$data['judul_web'] 		= "Biodata ".ucwords($data['user']->row()->nama_lengkap);
 
-					$this->load->view('siswa/header', $data);
-					$this->load->view('siswa/biodata', $data);
-					$this->load->view('siswa/footer');
+			$this->load->view('siswa/header', $data);
+			$this->load->view('siswa/biodata', $data);
+			$this->load->view('siswa/footer');
 		}
 	}
 
+	public function edit()
+	{
+		$ceks = $this->session->userdata('no_pendaftaran');
+		if(!isset($ceks)) {
+			redirect('logcs');
+		}else{
+			$data['user']  			  = $this->db->get_where('tbl_siswa', "no_pendaftaran='$ceks'");
+			$data['judul_web'] 		= "Biodata ".ucwords($data['user']->row()->nama_lengkap);
+
+			$this->load->view('siswa/header', $data);
+			$this->load->view('siswa/biodata_edit/edit', $data);
+			$this->load->view('siswa/footer');
+		}
+	}
 
 	public function cetak() {
 		$ceks = $this->session->userdata('no_pendaftaran');

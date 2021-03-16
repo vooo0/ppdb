@@ -123,84 +123,21 @@
                                 <td>: <?php echo $finish->nisn; ?></td>
                             </tr>
                             <tr>
-                                <td>Status Code</td>
-                                <td>: <?php echo $finish->status_code; ?></td>
+                                <td>Jumlah Bayar</td>
+                                <td>: Rp. 150.000</td>
                             </tr>
                             <tr>
-                                <td>Status Message</td>
-                                <td>: <?php echo $finish->status_message; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Order Id</td>
-                                <td>: <?php echo $finish->order_id; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Transaction Status</td>
-                                <td>: <?php echo $finish->transaction_status; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Biller Key</td>
+                                <td>Status</td>
                                 <td>: 
                                     <?php 
-                                        if(isset($finish->bill_key)){
-                                            echo $finish->bill_key;
-                                        } else {
-                                            echo '-';
-                                        }
+                                        if($finish->status == '0'){}
+                                        echo 'Belum Lunas'; 
                                     ?>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Biller Code</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->bill_code)){
-                                            echo $finish->bill_code;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bank</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->va_numbers[0]->bank)){
-                                            echo $finish->va_numbers[0]->bank;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>VA Number</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->va_numbers[0]->va_number)){
-                                            echo $finish->va_numbers[0]->va_number;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>VA Permata</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->permata_va_number)){
-                                            echo $finish->permata_va_number;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Payment Guide</td>
-                                <td>: <a href=<?php echo $finish->transaction_status; ?>> Download </a></td>
+                                <td>Keterangan</td>
+                                <td>: Harap segera melakukan pembayaran langsung disekolah sebelum 2 hari.</td>
                             </tr>
                             </table>
                         

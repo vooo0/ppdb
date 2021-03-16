@@ -57,166 +57,178 @@
     <![endif]-->
     <section>
 
-        <div class="main-content">
+      <div class="main-content">
         <!-- BEGIN TOPBAR -->
-            <div class="topbar" style="background-color:#2B589C;color:#fff;">
-                <div class="header-left">
-                    <div class="col-sm-12">
-                        <div style="margin-top:-8px;">
-                            <h2>
+        <div class="topbar" style="background-color:#2B589C;color:#fff;">
+          <div class="header-left">
+            <div class="col-sm-12">
+              <div style="margin-top:-8px;">
+              <h2>
 								<strong class="text-primary">
 									<a href=""><img src="img/logo.png" alt="Logo" width="30" style="position:absolute;margin-top:-3px;"> <span style="margin-left:35px;color:#fff;">PPDB Online</span></a>
 								</strong>
 							</h>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-right">
-                    <ul class="header-menu nav navbar-nav">
-                    <!-- BEGIN USER DROPDOWN -->
-                    <li class="dropdown" id="language-header">
-                        <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <span style="color:#ddd;">PPDB Tahun Ajaran <b class="text-danger" style="color:#fff;"><?php echo date('Y'); ?>-<?php echo date('Y')+1; ?></b></span>
-                        </a>
-                    </li>
-                    </ul>
-                </div>
+              </div>
             </div>
-        
+
+          </div>
+          <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+              <!-- BEGIN USER DROPDOWN -->
+              <li class="dropdown" id="language-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <span style="color:#ddd;">PPDB Tahun Ajaran <b class="text-danger" style="color:#fff;"><?php echo date('Y'); ?>-<?php echo date('Y')+1; ?></b></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- header-right -->
+        </div>
+      <div>
         <!-- END TOPBAR -->
         <!-- BEGIN PAGE CONTENT -->
         <div class="page-content page-wizard">
 
-            <div class="header" style="margin-top:-20px;">
-            <h2>Form Pembayaran Pendaftaran PPDB Online <strong> NAMA SEKOLAH</strong></h2>
+          <div class="header" style="margin-top:-20px;">
+            <h2>Form Pendaftaran PPDB Online <strong> NAMA SEKOLAH</strong></h2>
             <hr style="margin-top:5px;">
 
           </div>
           <div class="row" style="margin-top:-30px;">
             <div class="col-lg-12">
 
-                <div class="tabs tabs-linetriangle">
+              <div class="tabs tabs-linetriangle">
 
-                  <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h2><strong class="text-success" style="color:#eee;">Pembayaran Pendaftaran</strong></h2>
-                    </div>
-                    <div class="panel-body">
-                        <fieldset class="content-group">
-                        <legend class="text-bold"><i class="icon-user"></i> Confirmation</legend>
-                        
-                        <table>
-                            <tr>
-                                <td>Nama</td>
-                                <td>: <?php echo $finish->nama_lengkap; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Telepon</td>
-                                <td>: <?php echo $finish->no_telepon; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Jurusan</td>
-                                <td>: <?php echo $finish->jurusan; ?></td>
-                            </tr>
-                            <tr>
-                                <td>nisn</td>
-                                <td>: <?php echo $finish->nisn; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Status Code</td>
-                                <td>: <?php echo $finish->status_code; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Status Message</td>
-                                <td>: <?php echo $finish->status_message; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Order Id</td>
-                                <td>: <?php echo $finish->order_id; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Transaction Status</td>
-                                <td>: <?php echo $finish->transaction_status; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Biller Key</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->bill_key)){
-                                            echo $finish->bill_key;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Biller Code</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->bill_code)){
-                                            echo $finish->bill_code;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bank</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->va_numbers[0]->bank)){
-                                            echo $finish->va_numbers[0]->bank;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>VA Number</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->va_numbers[0]->va_number)){
-                                            echo $finish->va_numbers[0]->va_number;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>VA Permata</td>
-                                <td>: 
-                                    <?php 
-                                        if(isset($finish->permata_va_number)){
-                                            echo $finish->permata_va_number;
-                                        } else {
-                                            echo '-';
-                                        }
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Payment Guide</td>
-                                <td>: <a href=<?php echo $finish->transaction_status; ?>> Download </a></td>
-                            </tr>
-                            </table>
-                        
+                <div class="tab-content">
+                  <div class="tab-pane active" id="style">
+                    <?php
+                    echo $this->session->flashdata('msg');
+                    ?>
+                    <div class="wizard-div current wizard-sea" id="register">
+                      <form role="form" class="wizard wizard-validation" data-style="sea" role="form" action="" enctype="multipart/form-data"  method="post">
+                        <fieldset>
+                               <legend>Ketentuan</legend>
+
+                               <div class="col-md-2"></div>
+                               <div class="col-md-8">
+                                    <?php $this->load->view('web/step/1'); ?>
+                                    <div class="col-md-12" >
+                                        <span class="text-primary" style="font-size:18px;color:#222;"><strong>Apakah anda setuju dengan ketentuan diatas..?</strong></span>
+                                        <div class="form-group" style="padding-bottom:30px;">
+                                            <div class="radio bg-success" style="padding-top:10px;padding-bottom:10px;border-radius:3px;color:#222;" >
+                                              <label>
+                                                <input type="radio" value="cek" name="cek" data-parsley-group="block0" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-ck"]' required> <b>Ya, Saya setuju</b>
+                                              </label>
+                                              <div id="condition-ck" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <div class="col-md-2"></div>
+
+                             </fieldset>
+
+                        <fieldset>
+                          <legend>Data Siswa</legend>
+                          <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+  														<?php $this->load->view('web/step/2'); ?>
+                            </div>
+                          </div>
+                          <div class="col-lg-12"></div>
                         </fieldset>
-                        
-                    </form>
+
+                        <fieldset>
+                           <legend>Data Ortu / Wali</legend>
+                           <div class="row">
+                             <div class="col-md-2"></div>
+                             <div class="col-md-8">
+   														<?php $this->load->view('web/step/3'); ?>
+                             </div>
+                           </div>
+                           <div class="col-lg-12"></div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Data Sekolah</legend>
+                            <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-8">
+    														<?php $this->load->view('web/step/4'); ?>
+                              </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Rayonisasi</legend>
+                            <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-8">
+                                <?php $this->load->view('web/step/5'); ?>
+                              </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Nilai Rapor, Nilai USBN & UNKP/UNBK</legend>
+                            <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-8">
+                                <?php $this->load->view('web/step/6'); ?>
+                              </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Pembayaran Pendaftaran</legend>
+                            <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-8">
+                                <?php $this->load->view('web/step/7'); ?>
+                              </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                           <legend>Konfirmasi</legend>
+                           <div class="row">
+                           <div class="form-group" >
+                               <div class="col-md-3">
+                              </div>
+                              <div class="col-md-6 panel p-20" style="text-align:center">
+                              <i class="fa fa-info-circle faa-flash animated c-blue" style="font-size:97px"></i><br><br>
+                              <span style="font-size:15px">
+                                 Proses PPDB Online NAMA SEKOLAH hampir selesai. Silakan periksa kembali data-data calon siswa yang sudah anda masukkan.
+                                 <br><br>
+                                 <div class="col-md-12" >
+                                       <span class="text-primary" style="font-size:18px;"><strong>Apakah data calon siswa sudah sesuai dan lengkap?</strong></span>
+                                       <div class="form-group">
+                                          <div class="radio bg-success p-10" style="border-radius:3px;" >
+                                             <label>
+                                               <input type="radio" value="cekx" name="cekx" data-parsley-group="blockx" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-cx"]' required> <b>Ya, data sudah sesuai dan lengkap.</b>
+                                             </label>
+                                             <div class="faa-flash animated" id="condition-cx" style=" background:#FFBABA;color: #D8000C; width:auto;border-radius:5px;padding-left:10px;"></div>
+                                          </div>
+                                   </div>
+
+                              </span>
+                              </div>
+                              <div class="col-md-3">
+                              </div>
+                           </div>
+                           <div class="col-lg-12"></div>
+                        </fieldset>
+                      </form>
+                    </div>
+
                 </div>
+              </div>
             </div>
-        </div>
 
-
-    </div>
-    <!-- /dashboard content -->
-
-    
-    <div class="footer">
+          </div>
+          <div class="footer">
             <div class="copyright">
               <p class="pull-left sm-pull-reset">
                 <span>Copyright &copy; <a href="http://www.sman1belitang.sch.id" target="_blank">NAMA SEKOLAH</a> <?php echo date('Y'); ?> | IT Development</span>
