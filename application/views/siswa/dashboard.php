@@ -26,7 +26,7 @@
         <div class="panel panel-flat bg-warning">
           <div class="panel-heading">
             <h3 class="panel-title">
-              <center>Harap Lengkapi Biodata Calon Siswa</center>
+              <center>Harap Lengkapi Biodata Calon Siswa <a href="/panel_siswa/biodata">Disini</a> </center>
             </h3>
           </div>
         </div>
